@@ -6,17 +6,15 @@ const products = [
   { id: 4, name: "BAG_04", price: 8000, img: "assets/img/placeholder-4.jpg" }
 ];
 
-// ===== カート取得 =====
+// ===== カート =====
 function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
-// ===== カート保存 =====
 function saveCart(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// ===== カート追加 =====
 function addToCart(id) {
   let cart = getCart();
 
@@ -32,7 +30,7 @@ function addToCart(id) {
   updateCartCount();
 }
 
-// ===== カート数表示 =====
+// ===== カート数 =====
 function updateCartCount() {
   const cart = getCart();
   const total = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -41,7 +39,7 @@ function updateCartCount() {
   if (el) el.textContent = total;
 }
 
-// ===== 商品一覧表示（トップページ） =====
+// ===== 商品一覧 =====
 function renderProducts() {
   const productList = document.getElementById("product-list");
   if (!productList) return;
@@ -50,10 +48,9 @@ function renderProducts() {
 
   products.forEach(product => {
     const div = document.createElement("div");
-    div.className = "product-card";
 
     div.innerHTML = `
-      <a href="products/product-detail.html?id=${product.id}">
+      <a href="../products/product-detail/index.html?id=${product.id}">
         <img src="${product.img}" alt="">
         <h3>${product.name}</h3>
         <p>¥${product.price.toLocaleString()}</p>
@@ -68,6 +65,39 @@ function renderProducts() {
   });
 }
 
+// ===== 商品詳細 =====
+function renderProductDetail() {
+  const container = document.getElementById("product-detail");
+  if (!container) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const id = Number(params.get("id"));
+
+  const product = products.find(p => p.id === id);
+
+  if (!product) {
+    container.innerHTML = "<p>商品が見つかりません</p>";
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="detail-wrap">
+      <div class="detail-img">
+        <img src="../../${product.img}" alt="">
+      </div>
+
+      <div class="detail-info">
+        <h1>${product.name}</h1>
+        <p class="price">¥${product.price.toLocaleString()}</p>
+
+        <button class="add-to-cart" data-id="${product.id}">
+          ADD TO CART
+        </button>
+      </div>
+    </div>
+  `;
+}
+
 // ===== カート表示 =====
 function renderCart() {
   const cart = getCart();
@@ -77,12 +107,10 @@ function renderCart() {
   if (!container) return;
 
   container.innerHTML = "";
-
   let totalPrice = 0;
 
   cart.forEach(item => {
     const product = products.find(p => p.id === item.id);
-
     if (!product) return;
 
     totalPrice += product.price * item.qty;
@@ -91,14 +119,17 @@ function renderCart() {
     div.className = "cart-item";
 
     div.innerHTML = `
-      <p>${product.name}</p>
-      <p>¥${product.price.toLocaleString()}</p>
+      <div class="cart-left">
+        <p class="name">${product.name}</p>
+        <p class="price">¥${product.price.toLocaleString()}</p>
+      </div>
 
-      <button class="decrease" data-id="${item.id}">-</button>
-      <span>${item.qty}</span>
-      <button class="increase" data-id="${item.id}">+</button>
-
-      <button class="remove" data-id="${item.id}">削除</button>
+      <div class="cart-right">
+        <button class="decrease" data-id="${item.id}">-</button>
+        <span>${item.qty}</span>
+        <button class="increase" data-id="${item.id}">+</button>
+        <button class="remove" data-id="${item.id}">削除</button>
+      </div>
     `;
 
     container.appendChild(div);
@@ -109,24 +140,21 @@ function renderCart() {
   }
 }
 
-// ===== クリックイベント =====
+// ===== イベント =====
 document.addEventListener("click", function(e) {
   const id = Number(e.target.dataset.id);
   let cart = getCart();
 
-  // ✅ カート追加（ここで処理終了が重要）
   if (e.target.classList.contains("add-to-cart")) {
     addToCart(id);
-    return; // ←これが超重要
+    return;
   }
 
-  // ＋
   if (e.target.classList.contains("increase")) {
     const item = cart.find(i => i.id === id);
     if (item) item.qty += 1;
   }
 
-  // −
   if (e.target.classList.contains("decrease")) {
     const item = cart.find(i => i.id === id);
     if (item) {
@@ -137,7 +165,6 @@ document.addEventListener("click", function(e) {
     }
   }
 
-  // 削除
   if (e.target.classList.contains("remove")) {
     cart = cart.filter(i => i.id !== id);
   }
@@ -151,3 +178,4 @@ document.addEventListener("click", function(e) {
 updateCartCount();
 renderProducts();
 renderCart();
+renderProductDetail();

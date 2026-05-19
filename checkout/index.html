@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHECKOUT | TEMP/ERROR</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    
+    <div class="brand">
+      <a href="../">TEMP/ERROR</a>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../products/">SHOP</a></li>
+        <li><a href="../about/">ABOUT</a></li>
+        <li><a href="../contact/">CONTACT</a></li>
+        <li>
+          <a href="../cart/">
+            CART (<span id="cart-count">0</span>)
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<main class="container checkout" style="padding-top:100px;">
+
+  <h1>CHECKOUT</h1>
+
+  <!-- 商品 -->
+  <div id="checkout-items"></div>
+
+  <!-- 合計＋購入ボタン -->
+  <div class="checkout-summary">
+    <div id="checkout-total"></div>
+
+    <button type="submit" form="checkout-form" class="checkout-btn">
+      購入する
+    </button>
+  </div>
+
+  <!-- フォーム -->
+  <form id="checkout-form" class="checkout-form">
+
+    <label>
+      名前
+      <input type="text" required>
+    </label>
+
+    <label>
+      メール
+      <input type="email" required>
+    </label>
+
+    <label>
+      住所
+      <input type="text" required>
+    </label>
+
+  </form>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <div class="footer-left">
+      <p>TEMP/ERROR</p>
+      <p>© TEMP/ERROR</p>
+    </div>
+
+    <div class="footer-right">
+      <ul>
+        <li><a href="../contact/">CONTACT</a></li>
+        <li><a href="../terms/">TERMS</a></li>
+        <li><a href="../privacy/">PRIVACY</a></li>
+        <li><a href="../contact/#social">IG</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script src="./checkout.js"></script>
+
+</body>
+</html>
