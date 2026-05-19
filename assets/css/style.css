@@ -11,6 +11,17 @@ body {
   color: #fff;
 }
 
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+h1, h2, h3, .brand {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+}
+
 /* ===== CONTAINER ===== */
 .container {
   width: 90%;
@@ -542,4 +553,127 @@ h1, h2, h3 {
   border: 1px solid #fff;
   color: #fff;
   cursor: pointer;
+}
+
+/* about */
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.about-inner {
+  max-width: 700px;
+  padding: 20px;
+}
+
+.about-title {
+  font-size: 48px;
+  letter-spacing: 4px;
+  margin-bottom: 60px;
+}
+
+.about-lead {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #aaa;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+}
+
+.about-text p:nth-child(1) { animation-delay: 0.2s; }
+.about-text p:nth-child(2) { animation-delay: 0.4s; }
+.about-text p:nth-child(3) { animation-delay: 0.6s; }
+.about-text p:nth-child(4) { animation-delay: 0.8s; }
+
+.about-inner {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* contact */
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 600px;
+  width: 100%;
+}
+
+.contact-title {
+  font-size: 40px;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
+}
+
+.contact-lead {
+  margin-bottom: 40px;
+  color: #aaa;
+}
+
+/* フォーム */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form label {
+  text-align: left;
+  font-size: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  background: #000;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+.contact-form textarea {
+  height: 120px;
+}
+
+.contact-form button {
+  margin-top: 20px;
+  padding: 12px;
+  border: 1px solid #fff;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* SNS */
+.contact-social {
+  margin-top: 40px;
+}
+
+.contact-social a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: underline;
 }
