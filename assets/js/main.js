@@ -39,18 +39,24 @@ function updateCartCount() {
   if (el) el.textContent = total;
 }
 
-// ===== 商品一覧 =====
+// ===== 商品一覧（修正済み🔥）
 function renderProducts() {
   const productList = document.getElementById("product-list");
   if (!productList) return;
 
   productList.innerHTML = "";
 
+  const isProductsPage = window.location.pathname.includes("/products/");
+
   products.forEach(product => {
     const div = document.createElement("div");
 
+    const link = isProductsPage
+      ? `./product-detail/index.html?id=${product.id}`
+      : `products/product-detail/index.html?id=${product.id}`;
+
     div.innerHTML = `
-      <a href="products/product-detail/index.html?id=${product.id}">
+      <a href="${link}">
         <img src="${product.img}" alt="">
         <h3>${product.name}</h3>
         <p>¥${product.price.toLocaleString()}</p>
@@ -179,3 +185,18 @@ updateCartCount();
 renderProducts();
 renderCart();
 renderProductDetail();
+
+// ===== Header（修正済み🔥）
+function loadHeader() {
+  const header = document.getElementById("header");
+  if (!header) return;
+
+  fetch("components/header.html")
+    .then(res => res.text())
+    .then(data => {
+      header.innerHTML = data;
+      updateCartCount();
+    });
+}
+
+loadHeader();
