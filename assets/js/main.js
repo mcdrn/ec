@@ -50,7 +50,7 @@ function renderProducts() {
     const div = document.createElement("div");
 
     div.innerHTML = `
-      <a href="../products/product-detail/index.html?id=${product.id}">
+      <a href="products/product-detail/index.html?id=${product.id}">
         <img src="${product.img}" alt="">
         <h3>${product.name}</h3>
         <p>¥${product.price.toLocaleString()}</p>
