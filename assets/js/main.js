@@ -191,7 +191,7 @@ function loadHeader() {
   const header = document.getElementById("header");
   if (!header) return;
 
-  fetch("components/header.html")
+  fetch("../components/header.html")
     .then(res => res.text())
     .then(data => {
       header.innerHTML = data;
