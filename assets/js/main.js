@@ -1,9 +1,9 @@
 // ===== 商品データ =====
 const products = [
-  { id: 1, name: "HOODIE_01", price: 12000, img: "assets/img/placeholder-1.jpg" },
-  { id: 2, name: "JACKET_02", price: 18000, img: "assets/img/placeholder-2.jpg" },
-  { id: 3, name: "PANTS_03", price: 10000, img: "assets/img/placeholder-3.jpg" },
-  { id: 4, name: "BAG_04", price: 8000, img: "assets/img/placeholder-4.jpg" }
+  { id: 1, name: "HOODIE_01", price: 12000, img: "https://placehold.jp/150x200.png" },
+  { id: 2, name: "JACKET_02", price: 18000, img: "https://placehold.jp/150x200.png" },
+  { id: 3, name: "PANTS_03", price: 10000, img: "https://placehold.jp/150x200.png" },
+  { id: 4, name: "BAG_04", price: 8000, img: "https://placehold.jp/150x200.png" }
 ];
 
 // ===== カート =====
@@ -200,3 +200,46 @@ function loadHeader() {
 }
 
 loadHeader();
+
+// =========================
+// Header Scroll
+// =========================
+
+window.addEventListener("scroll", () => {
+
+  const header = document.querySelector(".site-header");
+
+  if (!header) return;
+
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+
+});
+
+
+// =========================
+// Scroll Animation
+// =========================
+
+const fadeElements = document.querySelectorAll(".fade-up");
+
+const observer = new IntersectionObserver((entries) => {
+
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+
+  });
+
+}, {
+  threshold: 0.2
+});
+
+fadeElements.forEach(el => {
+  observer.observe(el);
+});

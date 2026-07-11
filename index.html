@@ -6,6 +6,7 @@
   <title>TEMP/ERROR</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/top.css">
 </head>
 
 <body>
@@ -32,22 +33,38 @@
   </header> 
 
   <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>NEW WORLD / NEW SIGNAL</h1>
-      <p>架空世界のアーカイブ</p>
-      <a href="products/" class="btn">ENTER</a>
-    </div>
-  </section>
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+
+<div class="hero-content fade-up">
+    <p class="hero-subtitle">ARCHIVE OF A FICTIONAL FUTURE</p>
+
+    <h1>
+      NEW WORLD<br>
+      NEW SIGNAL
+    </h1>
+
+    <p class="hero-text">
+      TEMP/ERROR は架空世界をテーマにした
+      コンセプトアパレルブランドです。
+    </p>
+
+    <a href="products/" class="btn">ENTER SHOP</a>
+  </div>
+
+  <div class="scroll-indicator">
+    <span></span>
+  </div>
+</section>
 
   <!-- ===== FEATURE PRODUCTS ===== -->
   <section class="products">
     <div class="container">
 
-      <h2>FEATURED</h2>
-
+<h2 class="fade-up">FEATURED</h2>
       <!-- JSで差し込める構造 -->
-      <div id="product-list" class="product-grid">
+      <div id="product-list" class="product-grid fade-up">
 
         <!-- 仮データ（あとでJS化） -->
         <!-- <div class="product-card" data-id="1">
