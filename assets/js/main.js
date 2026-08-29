@@ -175,6 +175,17 @@ document.addEventListener("click", function(e) {
     cart = cart.filter(i => i.id !== id);
   }
 
+  // サイズ選択
+  if (e.target.classList.contains("size-btn")) {
+
+  document.querySelectorAll(".size-btn").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  e.target.classList.add("active");
+  return;
+  }
+
   saveCart(cart);
   updateCartCount();
   renderCart();

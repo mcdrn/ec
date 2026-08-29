@@ -1,9 +1,48 @@
 // ===== 商品データ =====
 const products = [
-  { id: 1, name: "HOODIE_01", price: 12000, img: "https://placehold.jp/150x150.png" },
-  { id: 2, name: "JACKET_02", price: 18000, img: "https://placehold.jp/150x150.png" },
-  { id: 3, name: "PANTS_03", price: 10000, img: "https://placehold.jp/150x150.png" },
-  { id: 4, name: "BAG_04", price: 8000, img: "https://placehold.jp/150x150.png" }
+  {
+    id: 1,
+    name: "HOODIE_01",
+    price: 12000,
+    img: "https://placehold.jp/150x200.png",
+    description: "近未来をテーマにしたオーバーサイズフーディー。シンプルながら存在感のあるデザイン。",
+    size: ["S", "M", "L", "XL"],
+    color: "BLACK",
+    stock: "In Stock"
+  },
+
+  {
+    id: 2,
+    name: "JACKET_02",
+    price: 18000,
+    img: "https://placehold.jp/150x200.png",
+    description: "防風性と機能性を兼ね備えたテックジャケット。タウンユースにも最適。",
+    size: ["M", "L", "XL"],
+    color: "GRAY",
+    stock: "Only 3 Left"
+  },
+
+  {
+    id: 3,
+    name: "PANTS_03",
+    price: 10000,
+    img: "https://placehold.jp/150x200.png",
+    description: "ゆとりのあるシルエットで快適な履き心地を実現したテックパンツ。",
+    size: ["S", "M", "L"],
+    color: "BLACK",
+    stock: "In Stock"
+  },
+
+  {
+    id: 4,
+    name: "BAG_04",
+    price: 8000,
+    img: "https://placehold.jp/150x200.png",
+    description: "日常使いから旅行まで対応するミニマルデザインのショルダーバッグ。",
+    size: ["FREE"],
+    color: "BLACK",
+    stock: "In Stock"
+  }
 ];
 
 // ===== カート =====
@@ -97,23 +136,53 @@ function renderProductDetail() {
   }
 
   container.innerHTML = `
-    <div class="detail-wrap">
-
-      <div class="detail-img">
-        <img src="${product.img}" alt="${product.name}">
-      </div>
-
-      <div class="detail-info">
-        <h1>${product.name}</h1>
-        <p class="price">¥${product.price.toLocaleString()}</p>
-
-        <button class="add-to-cart" data-id="${product.id}">
-          ADD TO CART
-        </button>
-      </div>
-
+  <div class="detail-wrap">
+    <div class="detail-img">
+      <img src="${product.img}" alt="${product.name}">
     </div>
-  `;
+
+<div class="detail-info">
+  <h1>${product.name}</h1>
+
+  <p class="price">¥${product.price.toLocaleString()}</p>
+
+  <div class="detail-meta">
+    <p><strong>STOCK</strong> ${product.stock}</p>
+    <p><strong>SIZE</strong> ${product.size}</p>
+    <p><strong>COLOR</strong> ${product.color}</p>
+  </div>
+
+
+
+<div class="size-select">
+  <h3>SIZE</h3>
+
+  <div class="size-options">
+<div class="size-options">
+  ${product.size.map((size, index) => `
+    <button
+      class="size-btn ${index === 0 ? "active" : ""}"
+      data-size="${size}">
+      ${size}
+    </button>
+  `).join("")}
+</div>
+</div>
+  <div class="description-box">
+    <h3>DESCRIPTION</h3>
+    <p>${product.description}</p>
+  </div>
+
+  <button class="add-to-cart" data-id="${product.id}">
+    ADD TO CART
+  </button>
+
+  <a href="../index.html" class="back-link">
+    ← BACK TO SHOP
+  </a>
+</div>
+  </div>
+`;
 }
 
 // ===== カート表示 =====
@@ -159,7 +228,7 @@ function renderCart() {
 }
 
 // ===== イベント =====
-document.addEventListener("click", function(e) {
+document.addEventListener("click", function (e) {
   const id = Number(e.target.dataset.id);
   let cart = getCart();
 
@@ -186,6 +255,17 @@ document.addEventListener("click", function(e) {
   if (e.target.classList.contains("remove")) {
     cart = cart.filter(i => i.id !== id);
   }
+
+  // サイズ選択
+if (e.target.classList.contains("size-btn")) {
+
+  document.querySelectorAll(".size-btn").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  e.target.classList.add("active");
+  return;
+}
 
   saveCart(cart);
   updateCartCount();
