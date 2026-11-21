@@ -197,3 +197,129 @@ a{
     background:#fff;
     color:#000;
 }
+
+/* スマホ版 */
+
+/* =========================================
+   SHOP - RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* SHOP全体 */
+  main.container {
+    width: 90%;
+    padding-top: 90px !important;
+  }
+
+  /* SHOP HERO */
+  .shop-hero {
+    padding: 35px 0 25px;
+  }
+
+  .shop-hero .container {
+    width: 100%;
+  }
+
+  .shop-subtitle {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+  }
+
+  .shop-hero h1 {
+    font-size: 38px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+  }
+
+  .shop-description {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  /* 商品一覧 */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .product-grid > div,
+  .product-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* 商品画像 */
+  .product-grid img,
+  .product-image img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* 商品名 */
+  .product-grid h3,
+  .product-info h3 {
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin: 12px 10px 6px;
+    overflow-wrap: anywhere;
+  }
+
+  /* 価格 */
+  .product-grid p,
+  .product-info p {
+    font-size: 12px;
+    margin: 0 10px 12px;
+  }
+
+  /* ADD TO CART */
+  .product-grid .add-to-cart,
+  .product-card .add-to-cart {
+    width: calc(100% - 20px);
+    min-height: 40px;
+    margin: 0 10px 12px;
+    padding: 10px 4px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+  .shop-hero h1 {
+    font-size: 32px;
+  }
+
+  .product-grid {
+    gap: 9px;
+  }
+
+  .product-grid h3,
+  .product-info h3 {
+    font-size: 10px;
+  }
+
+  .product-grid p,
+  .product-info p {
+    font-size: 11px;
+  }
+
+  .product-grid .add-to-cart,
+  .product-card .add-to-cart {
+    font-size: 8px;
+  }
+
+}

@@ -38,3 +38,61 @@ div.innerHTML = `
     productList.appendChild(div);
   });
 }
+
+
+// =================================
+// HAMBURGER MENU
+// =================================
+
+document.addEventListener("click", function(e) {
+
+  const menuButton = e.target.closest(".menu-toggle");
+
+  // メニューボタンをクリック
+  if (menuButton) {
+
+    const header = menuButton.closest(".site-header");
+    const isOpen = header.classList.toggle("menu-open");
+
+    document.body.classList.toggle("menu-open", isOpen);
+
+    menuButton.setAttribute("aria-expanded", isOpen);
+    menuButton.setAttribute(
+      "aria-label",
+      isOpen ? "メニューを閉じる" : "メニューを開く"
+    );
+
+    return;
+  }
+
+  // メニュー内のリンクをクリック
+  if (e.target.closest(".main-nav a")) {
+    closeMenu();
+  }
+
+});
+
+// メニューを閉じる
+function closeMenu() {
+
+  const header = document.querySelector(".site-header");
+  const menuButton = document.querySelector(".menu-toggle");
+
+  if (!header || !menuButton) return;
+
+  header.classList.remove("menu-open");
+  document.body.classList.remove("menu-open");
+
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "メニューを開く");
+
+}
+
+// ESCキーで閉じる
+document.addEventListener("keydown", function(e) {
+
+  if (e.key === "Escape") {
+    closeMenu();
+  }
+
+});

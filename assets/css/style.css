@@ -677,3 +677,993 @@ h1, h2, h3 {
   margin-top: 10px;
   text-decoration: underline;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* スマホ版 */
+
+
+/* =================================
+   HAMBURGER MENU
+================================= */
+
+/* PCでは非表示 */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 27px;
+  height: 2px;
+  margin: 6px 0;
+  background: #fff;
+  transition: .35s ease;
+}
+
+/* =================================
+   SMARTPHONE
+================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* ヘッダー */
+  .site-header {
+    height: 70px;
+    background: rgba(10, 10, 10, .95);
+    backdrop-filter: blur(12px);
+  }
+
+  .header-inner {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .brand {
+    position: relative;
+    z-index: 1002;
+  }
+
+  .brand a {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+
+  /* ハンバーガーボタン */
+  .menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 1002;
+  }
+
+  /* メニュー本体 */
+  .main-nav {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 50dvh;
+    background: #080808;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .35s ease,
+                visibility .35s ease;
+
+    z-index: 1001;
+  }
+
+  /* メニュー表示 */
+  .site-header.menu-open .main-nav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .main-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .main-nav li a {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* ハンバーガー → × */
+  .site-header.menu-open .menu-toggle span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .site-header.menu-open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .site-header.menu-open .menu-toggle span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* メニュー表示中のスクロール防止 */
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+/* 小さいスマホ */
+@media screen and (max-width: 480px) {
+
+  .brand a {
+    font-size: 16px;
+  }
+
+  .main-nav li a {
+    font-size: 21px;
+  }
+
+}
+
+
+
+
+
+/* =========================================
+   RESPONSIVE BASE
+   TEMP/ERROR
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* 基本設定 */
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 100%;
+  }
+
+  main {
+    padding-top: 90px !important;
+  }
+
+  h1 {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+
+  h2 {
+    font-size: clamp(21px, 5vw, 28px);
+  }
+
+  p {
+    overflow-wrap: break-word;
+  }
+
+  /* 商品一覧 */
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-grid > div {
+    min-width: 0;
+  }
+
+  .product-grid img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* 商品詳細 */
+  .detail-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .detail-img,
+  .detail-info {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .detail-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .detail-info h1 {
+    font-size: 26px;
+  }
+
+  .size-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .size-btn {
+    min-width: 45px;
+    min-height: 42px;
+  }
+
+  /* カート */
+  .cart-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px 0;
+  }
+
+  .cart-left,
+  .cart-right {
+    max-width: 100%;
+  }
+
+  .cart-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* チェックアウト */
+  .checkout {
+    width: 90%;
+  }
+
+  .checkout-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .checkout-form {
+    width: 100%;
+  }
+
+  .checkout-form label {
+    width: 100%;
+  }
+
+  .checkout-form input,
+  .checkout-form textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ABOUT・CONTACT・規約ページ */
+  .about,
+  .contact,
+  .contact-inner,
+  .about-inner {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* フッター */
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .footer-right ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  /* ボタン */
+  button,
+  .btn,
+  .checkout-btn {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+========================================= */
+
+@media screen and (max-width: 480px) {
+
+  .container {
+    width: 92%;
+  }
+
+  main {
+    padding-top: 85px !important;
+  }
+
+  .footer-inner {
+    gap: 20px;
+  }
+
+  .footer-right ul {
+    gap: 12px;
+  }
+
+}
+
+
+
+/* =========================================
+   CART - RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* CARTページ */
+  main.container {
+    width: 90%;
+    padding-top: 90px !important;
+  }
+
+  main.container > h1 {
+    font-size: 30px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+
+  /* 商品一覧 */
+  #cart-items {
+    width: 100%;
+  }
+
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 22px 0;
+    border-bottom: 1px solid #333;
+  }
+
+  .cart-left {
+    width: 100%;
+  }
+
+  .cart-left .name {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .cart-left .price {
+    font-size: 13px;
+  }
+
+  /* 数量変更・削除 */
+  .cart-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .cart-right button {
+    min-width: 38px;
+    min-height: 38px;
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .cart-right span {
+    min-width: 20px;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  /* 合計金額 */
+  #cart-total {
+    margin-top: 25px !important;
+    font-size: 18px !important;
+    text-align: right;
+  }
+
+  /* 購入ボタン */
+  .checkout-btn {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+    margin-top: 25px;
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 13px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+  main.container > h1 {
+    font-size: 26px;
+  }
+
+  .cart-left .name {
+    font-size: 12px;
+  }
+
+  #cart-total {
+    font-size: 16px !important;
+  }
+
+}
+
+
+/* =========================================
+   CHECKOUT - RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* ページ全体 */
+  main.checkout {
+    width: 90%;
+    padding-top: 90px !important;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+  }
+
+  .checkout h1 {
+    font-size: 30px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+
+  /* 注文商品 */
+  #checkout-items {
+    width: 100%;
+  }
+
+  .checkout-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 0;
+    border-bottom: 1px solid #333;
+    font-size: 12px;
+  }
+
+  .checkout-item p {
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* 合計金額 */
+  .checkout-summary {
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  #checkout-total {
+    font-size: 18px;
+    text-align: right;
+    margin-bottom: 20px;
+  }
+
+  /* フォーム */
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .checkout-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .checkout-form input,
+  .checkout-form textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  /* 購入ボタン */
+  .checkout-btn {
+    width: 100%;
+    min-height: 50px;
+    padding: 14px;
+    font-size: 13px;
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+  .checkout h1 {
+    font-size: 26px;
+  }
+
+  .checkout-item {
+    font-size: 11px;
+  }
+
+  #checkout-total {
+    font-size: 16px;
+  }
+
+}
+
+
+/* =========================================
+   CHECKOUT - MOBILE LAYOUT FIX
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* 注文内容 */
+  #checkout-items {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .checkout-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 18px 0;
+    box-sizing: border-box;
+  }
+
+  .checkout-item p:first-child {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .checkout-item p:last-child {
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  /* 合計金額と購入ボタン */
+  .checkout-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 20px;
+    margin-top: 25px;
+  }
+
+  #checkout-total {
+    display: block;
+    width: 100%;
+    margin: 0;
+    text-align: right;
+    font-size: 20px;
+    box-sizing: border-box;
+  }
+
+  .checkout-summary .checkout-btn {
+    display: block;
+    position: static;
+    float: none;
+    transform: none;
+    width: 100%;
+    min-height: 50px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* 入力フォーム */
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 22px;
+    margin-top: 35px;
+  }
+
+  .checkout-form label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .checkout-form input {
+    display: block;
+    width: 100%;
+    height: 48px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* SMALL SMARTPHONE */
+@media screen and (max-width: 400px) {
+
+  #checkout-total {
+    font-size: 18px;
+  }
+
+}
+
+
+
+/* =========================================
+   CHECKOUT - MOBILE LAYOUT FIX
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* 注文内容 */
+  #checkout-items {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .checkout-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 18px 0;
+    box-sizing: border-box;
+  }
+
+  .checkout-item p:first-child {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .checkout-item p:last-child {
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  /* 合計金額と購入ボタン */
+  .checkout-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 20px;
+    margin-top: 25px;
+  }
+
+  #checkout-total {
+    display: block;
+    width: 100%;
+    margin: 0;
+    text-align: right;
+    font-size: 20px;
+    box-sizing: border-box;
+  }
+
+  .checkout-summary .checkout-btn {
+    display: block;
+    position: static;
+    float: none;
+    transform: none;
+    width: 100%;
+    min-height: 50px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* 入力フォーム */
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 22px;
+    margin-top: 35px;
+  }
+
+  .checkout-form label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .checkout-form input {
+    display: block;
+    width: 100%;
+    height: 48px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* SMALL SMARTPHONE */
+@media screen and (max-width: 400px) {
+
+  #checkout-total {
+    font-size: 18px;
+  }
+
+}
+
+
+
+
+/* =========================================
+   ABOUT - RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* ABOUT全体 */
+  .about {
+    width: 90%;
+    margin: 0 auto;
+    padding: 70px 0;
+    box-sizing: border-box;
+  }
+
+  .about-inner {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* タイトル */
+  .about-title {
+    font-size: clamp(30px, 9vw, 42px);
+    letter-spacing: 4px;
+    line-height: 1.2;
+    margin-bottom: 35px;
+  }
+
+  /* リード文 */
+  .about-lead {
+    font-size: 16px;
+    line-height: 2;
+    margin-bottom: 35px;
+  }
+
+  /* 本文 */
+  .about-text {
+    font-size: 12px;
+    line-height: 2.3;
+    letter-spacing: .5px;
+  }
+
+  .about-text p {
+    margin-bottom: 25px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+  .about {
+    width: 88%;
+    padding: 55px 0;
+  }
+
+  .about-title {
+    font-size: 29px;
+    letter-spacing: 3px;
+  }
+
+  .about-lead {
+    font-size: 14px;
+  }
+
+  .about-text {
+    font-size: 11px;
+    line-height: 2.2;
+  }
+
+}
+
+
+
+/* =========================================
+   TERMS - RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* TERMS全体 */
+  main.container {
+    width: 90%;
+    max-width: 100% !important;
+    padding: 100px 0 60px !important;
+    box-sizing: border-box;
+  }
+
+  /* ページタイトル */
+  main.container > h1 {
+    font-size: 30px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+
+  /* 規約本文 */
+  main.container > section {
+    margin-top: 25px !important;
+    line-height: 2 !important;
+  }
+
+  main.container > section p {
+    font-size: 12px;
+    line-height: 2.1;
+    margin-bottom: 22px;
+  }
+
+  main.container > section h2 {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    letter-spacing: .5px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+  main.container > h1 {
+    font-size: 27px;
+  }
+
+  main.container > section p {
+    font-size: 11px;
+  }
+
+  main.container > section h2 {
+    font-size: 15px;
+  }
+
+}
+
+
+
+/* =========================================
+   PRIVACY - RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* PRIVACY全体 */
+  main.container {
+    width: 90%;
+    max-width: 100% !important;
+    padding: 100px 0 60px !important;
+    box-sizing: border-box;
+  }
+
+  /* ページタイトル */
+  main.container > h1 {
+    font-size: 30px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+
+  /* 本文 */
+  main.container > section {
+    margin-top: 25px !important;
+    line-height: 2 !important;
+  }
+
+  main.container > section p {
+    font-size: 12px;
+    line-height: 2.1;
+    margin-bottom: 22px;
+    overflow-wrap: break-word;
+  }
+
+  main.container > section h2 {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    letter-spacing: .5px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+  main.container > h1 {
+    font-size: 27px;
+  }
+
+  main.container > section p {
+    font-size: 11px;
+  }
+
+  main.container > section h2 {
+    font-size: 15px;
+  }
+
+}

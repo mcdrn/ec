@@ -282,3 +282,165 @@
 .delay-3 {
   transition-delay: .45s;
 }
+
+
+
+
+/* スマホ版 */
+
+
+
+/* =========================================
+   TEMP/ERROR - MOBILE TOP DESIGN
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* ===== HERO ===== */
+
+  .hero {
+    height: 50svh;
+    min-height: 650px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    background-position: 58% center;
+    background-size: cover;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: none;
+    padding: 0 7%;
+    margin-top: 30px;
+  }
+
+  .hero-subtitle {
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+    color: #aaa;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 10vw, 58px);
+    line-height: 1.15;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+  }
+
+  .hero-text {
+    font-size: 12px;
+    line-height: 2;
+    color: #ccc;
+    margin-bottom: 32px;
+  }
+
+  .hero .btn {
+    padding: 15px 30px;
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .scroll-indicator {
+    bottom: 25px;
+  }
+
+  .scroll-indicator span {
+    height: 40px;
+  }
+
+
+  /* ===== FEATURED ===== */
+
+  .products {
+    padding: 75px 0 90px;
+  }
+
+  .products .container {
+    width: 90%;
+  }
+
+  .products h2 {
+    font-size: 25px;
+    letter-spacing: 4px;
+    margin-bottom: 0;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 35px;
+  }
+
+  .product-grid > div {
+    min-width: 0;
+    background: #101010;
+    border: 1px solid #222;
+  }
+
+  .product-grid img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .product-grid h3 {
+    margin: 13px 10px 7px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    overflow-wrap: anywhere;
+  }
+
+  .product-grid p {
+    margin: 0 10px 14px;
+    font-size: 12px;
+  }
+
+  .add-to-cart {
+    width: calc(100% - 20px);
+    margin: 0 10px 12px;
+    padding: 11px 4px;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero-subtitle {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .hero-text {
+    font-size: 11px;
+  }
+
+  .product-grid {
+    gap: 9px;
+  }
+
+  .product-grid h3 {
+    font-size: 10px;
+  }
+
+  .product-grid p {
+    font-size: 11px;
+  }
+
+  .add-to-cart {
+    font-size: 8px;
+  }
+
+}

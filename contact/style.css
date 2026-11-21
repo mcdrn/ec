@@ -3,3 +3,118 @@
 .contact {
     margin-top: 100px;
 }
+
+
+/* スマホ版 */
+
+/* =========================================
+   CONTACT - RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* CONTACT全体 */
+  .contact {
+    width: 90%;
+    margin: 0 auto;
+    padding: 30px 0 60px;
+    box-sizing: border-box;
+  }
+
+  .contact-inner {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* タイトル */
+  .contact-title {
+    font-size: clamp(28px, 8vw, 38px);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+
+  /* 説明文 */
+  .contact-lead {
+    font-size: 12px;
+    line-height: 2;
+    margin-bottom: 35px;
+  }
+
+  /* フォーム */
+  .contact form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 22px;
+  }
+
+  .contact form label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .contact form input,
+  .contact form textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 48px;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  .contact form textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  /* 送信ボタン */
+  .contact form button,
+  .contact form .btn {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  /* SNS */
+  #social {
+    margin-top: 55px;
+  }
+
+  #social a {
+    font-size: 12px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+  .contact {
+    width: 88%;
+  }
+
+  .contact-title {
+    font-size: 27px;
+  }
+
+  .contact-lead {
+    font-size: 11px;
+  }
+
+  .contact form label {
+    font-size: 11px;
+  }
+
+}

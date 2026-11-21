@@ -293,3 +293,152 @@ img{
     background:#fff;
     color:#000;
 }
+
+
+
+/* スマホ版 */
+
+/* =========================================
+   PRODUCT DETAIL - RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* 商品詳細全体 */
+  #product-detail {
+    width: 100%;
+    padding-bottom: 50px;
+  }
+
+  .detail-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+  }
+
+  /* 商品画像 */
+  .detail-img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .detail-img img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  /* 商品情報 */
+  .detail-info {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .detail-info h1 {
+    font-size: 25px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .detail-info .price {
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+
+  /* 商品情報 */
+  .detail-meta {
+    margin-bottom: 25px;
+  }
+
+  .detail-meta p {
+    font-size: 12px;
+    line-height: 1.9;
+  }
+
+  /* サイズ選択 */
+  .size-select {
+    margin: 25px 0;
+  }
+
+  .size-select h3 {
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .size-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .size-btn {
+    min-width: 48px;
+    min-height: 45px;
+    padding: 10px;
+    font-size: 12px;
+    box-sizing: border-box;
+  }
+
+  /* 商品説明 */
+  .description-box {
+    margin: 25px 0;
+  }
+
+  .description-box h3 {
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .description-box p {
+    font-size: 12px;
+    line-height: 2;
+  }
+
+  /* カートボタン */
+  .detail-info .add-to-cart {
+    width: 100%;
+    min-height: 50px;
+    margin: 20px 0;
+    font-size: 12px;
+    letter-spacing: 2px;
+    box-sizing: border-box;
+  }
+
+  /* 戻るリンク */
+  .back-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL SMARTPHONE
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+  .detail-info h1 {
+    font-size: 22px;
+  }
+
+  .detail-info .price {
+    font-size: 16px;
+  }
+
+  .size-btn {
+    min-width: 43px;
+    min-height: 43px;
+  }
+
+}
