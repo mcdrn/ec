@@ -1068,6 +1068,7 @@ h1, h2, h3 {
     gap: 15px;
     padding: 22px 0;
     border-bottom: 1px solid #333;
+    padding-left: 15px;
   }
 
   .cart-left {
